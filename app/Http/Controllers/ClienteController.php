@@ -123,9 +123,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $usuario)
+    public function destroy(Cliente $cliente)
     {
-        $usuario-> delete();
+        $cliente-> delete();
         return redirect()->route('clientes.index');
     }
 }

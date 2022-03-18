@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\InformacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 //Route::resource('/usuarios',ProductoController::class);
 
 
-//Route::name('info')->get('/',[InformacionController::class, 'info']);
-//Route::name('location')->get('/location',[InformacionController::class, 'location']);
+Route::name('info')->get('/info',[InformacionController::class, 'info']);
+Route::name('location')->get('/location',[InformacionController::class, 'location']);

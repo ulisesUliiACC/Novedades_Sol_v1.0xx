@@ -9,7 +9,7 @@
                 <div class="bg-white overflow-hidden shadow-x1 sm:rounded-lg">
                     
 
-                    <form action="{{ route('usuarios.update',$usuario->id_usuario) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('cliente.update',$cliente->id_cliente) }}" method="POST" enctype="multipart/form-data">
                       {{  @csrf_field()}}
                       @method('PUT')
                         <div class="bg-green-200 py-32 px-5 min">
@@ -21,7 +21,7 @@
                                     <!--         tip - here neede inline-block , but why? -->
                                     <label
                                         class="inline-block w-20 mr-6   font-bold text-gray-600">Nombre</label>
-                                    <input name="nombre" type="text"  placeholder="Nombre"  value="{{ $usuario->nombre }}" required
+                                    <input name="nombre" type="text"  placeholder="Nombre"  value="{{ $cliente->nombre }}" required
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
                                 </div>
 
@@ -29,7 +29,7 @@
                                     <!--         tip - here neede inline-block , but why? -->
                                     <label
                                         class="inline-block w-20 mr-6   font-bold text-gray-600">Apellido paterno</label>
-                                    <input name="apellido_pa" type="text"  placeholder="Apellido paterno"  value="{{ $usuario->apellido_pa}} "required
+                                    <input name="apellido_pa" type="text"  placeholder="Apellido paterno"  value="{{ $cliente->apellido_pa}} "required
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
                                 </div>
 
@@ -37,12 +37,12 @@
                                     <!--         tip - here neede inline-block , but why? -->
                                     <label
                                         class="inline-block w-20 mr-6   font-bold text-gray-600">Apellido materno</label>
-                                    <input name="apellido_ma" type="text"  placeholder="Apellido materno" value="{{ $usuario->apellido_ma }}"required
+                                    <input name="apellido_ma" type="text"  placeholder="Apellido materno" value="{{ $cliente->apellido_ma }}"required
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
                                 </div>
 
                                 <div class="grid grid-cols-1 mt-5 mx-7 justify-center">
-                                    <img id="imagenSeleccionada"  src="/imagen/{{ $usuario->imagen }}" style="max-heigth: 300px;">
+                                    <img id="imagenSeleccionada"  src="/imagen/{{ $cliente->imagen }}" style="max-heigth: 300px;">
 
                                 </div>
                                 <br>
@@ -66,7 +66,7 @@
                                                     class='text-sm text-gray-400 group-hover:text-purple pt-1 tracting-wider'>
                                                     Seleciona la imagen</p>
                                             </div>
-                                            <input id="imagen" name="imagen" id="imagen" type='file' class="hidden" value="{{ $usuario->imagen}}" required/>
+                                            <input id="imagen" name="imagen" id="imagen" type='file' class="hidden" value="{{ $cliente->imagen}}" required/>
                                         </label>
                                     </div>
                                 </div>
@@ -74,34 +74,34 @@
                                 <div class="flex items-center  mb-5">
                                     <label
                                         class="inline-block w-20 mr-6   font-bold text-gray-600">Correo Electronico</label>
-                                    <input name="correo" type="email" value="{{ $usuario->correo }}"
+                                    <input name="correo" type="email" value="{{ $cliente->correo }}"
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
                                 </div>
 
                                 <div class="flex items-center  mb-5">
                                     <label class="inline-block w-20 mr-6   font-bold text-gray-600">genero</label>
                                     <label class="inline-flex items-center mt-3">
-                                        <input type="radio" class="form-radio h-5 w-5 text-purple-600" name="genero" value="masculino" value="{{ $usuario->genero }}"required checked><span class="ml-2 text-gray-700">Masculino</span>
+                                        <input type="radio" class="form-radio h-5 w-5 text-purple-600" name="genero" value="masculino" value="{{ $cliente->genero }}"required checked><span class="ml-2 text-gray-700">Masculino</span>
                                     </label>
                                  </div>
                                  <div class="flex items-center  mb-5">
                                     <label class="inline-block w-20 mr-6   font-bold text-gray-600"></label>
                                     <label class="inline-flex items-center mt-3">
-                                        <input type="radio" class="form-radio h-5 w-5 text-purple-600" name="genero" value="femenino"  value="{{ $usuario->genero }}"required checked><span class="ml-2 text-gray-700">Femenino</span>
+                                        <input type="radio" class="form-radio h-5 w-5 text-purple-600" name="genero" value="femenino"  value="{{ $cliente->genero }}"required checked><span class="ml-2 text-gray-700">Femenino</span>
                                     </label>
                                  </div>
 
                                  <div class="flex items-center  mb-5">
                                     <label
                                         class="inline-block w-20 mr-6   font-bold text-gray-600">Fecha de Nacimiento</label>
-                                    <input name="fecha_de_naci" type="date"  value="fecha_de_naci" value="{{ $usuario->fecha_de_naci }}"required
+                                    <input name="fecha_de_naci" type="date"  value="fecha_de_naci" value="{{ $cliente->fecha_de_naci }}"required
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
                                 </div>
                                 
 
                                
                                 <div class='flex items-center justify-center md:gap-8 gap-4 pt-5 '>
-                                    <a href="{{ route('usuarios.index') }}"
+                                    <a href="{{ route('cliente.index') }}"
                                       class="py-3 px-6 text-white rounded-lg bg-red-500 shadow-lg block md:inline-block">Cancelar</a>
                                     <button type="submit "
                                     class="py-3 px-6 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block">Guardar</button>

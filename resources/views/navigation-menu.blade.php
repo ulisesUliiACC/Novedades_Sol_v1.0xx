@@ -5,9 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
+                    
                 </div>
 
                 <!-- Navigation Links -->
@@ -20,8 +18,15 @@
                         {{ __('Productos') }}
                     </x-jet-nav-link> 
                     <x-jet-nav-link href="{{ route('cliente.index') }}" :active="request()->routeIs('cliente.index')">
-                        {{ __('Productos') }}
+                        {{ __('clientes') }}
                     </x-jet-nav-link> 
+                    <x-jet-nav-link href="{{ route('info') }}" :active="request()->routeIs('info')">
+                        {{ __('tarjetas produtos') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('location') }}" :active="request()->routeIs('location')">
+                        {{ __('localizacion ') }}
+                    </x-jet-nav-link>
                     
                 </div>
             </div>
