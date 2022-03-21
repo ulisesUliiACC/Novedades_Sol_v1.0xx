@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\InformacionController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,18 @@ use App\Http\Controllers\InformacionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::resource('/productos',ProductoController::class);
     Route::resource('/cliente',ClienteController::class);
     //Route::resource('/informacion',InformacionController::class);
+    Route::resource('/categorias',CategoriaController::class);
+    Route::name('info')->get('/info',[InformacionController::class, 'info']);
+Route::name('location')->get('/location',[InformacionController::class, 'location']);
+
+
     Route::get('/dashboard',function(){ 
         return view('dashboard');
     })->name('dashboard');
@@ -35,3 +41,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
 Route::name('info')->get('/info',[InformacionController::class, 'info']);
 Route::name('location')->get('/location',[InformacionController::class, 'location']);
+
+//--------------Agregar categorias ------------- ------
+
+//Route::name('categoria')->get('/create',[CategoriaController::class, 'categoria']);
+
+

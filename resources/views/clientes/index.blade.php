@@ -105,12 +105,12 @@
 			<div class="mb-6 md:mb-0">
 				<a href="https://flowbite.com" target="_blank" class="flex items-center">
 					<img src="https://flowbite.com/docs/images/logo.svg" class="mr-4 h-10" alt="FlowBite Logo">
-					<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+					<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Novedades Sol</span>
 				</a>
 			</div>
 			<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
 				<div>
-					<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h3>
+					<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">recursos</h3>
 					<ul>
 						<li class="mb-4">
 							<a href="https://flowbite.com" target="_blank"
@@ -123,7 +123,7 @@
 					</ul>
 				</div>
 				<div>
-					<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h3>
+					<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Material </h3>
 					<ul>
 						<li class="mb-4">
 							<a href="https://github.com/themesberg/flowbite" target="_blank"
@@ -136,7 +136,7 @@
 					</ul>
 				</div>
 				<div>
-					<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h3>
+					<h3 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Datos</h3>
 					<ul>
 						<li class="mb-4">
 							<a href="#" target="_blank" class="text-gray-600 hover:underline dark:text-gray-400">Privacy

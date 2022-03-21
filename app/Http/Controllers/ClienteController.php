@@ -126,6 +126,6 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente-> delete();
-        return redirect()->route('clientes.index');
+        return redirect()->route('cliente.index');
     }
 }

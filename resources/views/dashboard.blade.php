@@ -1,3 +1,4 @@
+<title> Novedades Sol</title> 
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 text-center">
@@ -53,7 +54,7 @@
               </div>
             </div>
   
-            <a href="#" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Shop Collection</a>
+            <a href="#" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Mostar coleccion</a>
           </div>
         </div>
       </div>
