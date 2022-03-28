@@ -9,9 +9,12 @@ class ProductoController extends Controller
 {
     public function index()
     {
+     ;
         $productos =producto::paginate(5);
         return view('productos.index',compact('productos'));
     }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -105,6 +108,8 @@ class ProductoController extends Controller
          }
          $producto->update($prod);
          return redirect()->route('productos.index');
+         
+        
         
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\producto;
 
 class CategoriaController extends Controller
 {
@@ -13,7 +14,13 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('Categorias.index');
+        $Categorias =producto::paginate(5);
+        return view('Categorias.index',compact('Categorias'));
+    }
+    public function ropa()
+    {
+        $Categorias =producto::paginate(5);
+        return view('Categorias.ropa',compact('Categorias'));
     }
 
     /**
@@ -23,7 +30,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

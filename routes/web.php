@@ -21,12 +21,20 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+Route::get('categorias', function () {
+    return view('Categorias.index');
+});
+
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::resource('/productos',ProductoController::class);
+
     Route::resource('/cliente',ClienteController::class);
-    //Route::resource('/informacion',InformacionController::class);
+    
     Route::resource('/categorias',CategoriaController::class);
+
     Route::name('info')->get('/info',[InformacionController::class, 'info']);
+    
 Route::name('location')->get('/location',[InformacionController::class, 'location']);
 
 
@@ -35,12 +43,10 @@ Route::name('location')->get('/location',[InformacionController::class, 'locatio
     })->name('dashboard');
 });
 
-//Route::resource('/usuarios', UsuarioController::class)->names('usuario');
-//Route::resource('/usuarios',ProductoController::class);
-
-
-Route::name('info')->get('/info',[InformacionController::class, 'info']);
+Route::name('categorias')->get('/ropa',[CategoriaController::class, 'ropa']);
 Route::name('location')->get('/location',[InformacionController::class, 'location']);
+
+Route::name('categorias/ropa')->get('/ropa',[CategoriaController::class,'ropa']);
 
 //--------------Agregar categorias ------------- ------
 
