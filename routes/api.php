@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\zapatosApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,23 +20,30 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/productos',[ApiController::class,'productos']);
 
 Route::get('/clientes',[ApiController::class,'clientes']);
 
+
 // para mostrar datos 
-Route::post('/clientes',[ApiController::class,'clientes']);
-
-
+Route::post('/productos',[ApiController::class,'productos']);
+Route::get('/productos',[ApiController::class,'productos']);
 // agrgacion de alta
 Route::post('productos',[ApiController::class,'alta']);
-
 // eliminacion 
 Route::delete('productos/{producto}',[ApiController::class,'destroyProducto']);
-
-
 //metodo de actualizacion
-Route::patch('productos/{producto}',[ApiController::class,'update']);
+Route::put('productos/{producto}',[ApiController::class,'update']);
+
+
+//------------------------api de zapatos--------------------------
+Route::get('/zapatos',[zapatosApiController::class,'zapato']);
+//-------- agregacion de zapatos en alta--------
+Route::post('/zapatos',[zapatosApiController::class,'alta']);
+
+//------ eliminacio de zapatos--------------------------------
+Route::delete('zapatos/{zapato}',[zapatosApiController::class,'baja']);
+
+
 
 
 

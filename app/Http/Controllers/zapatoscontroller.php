@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Producto;
+use App\Models\Zapato;
 
-class ProductoController extends Controller
+class zapatoscontroller extends Controller
 {
     public function index()
     {
      ;
-        $productos =producto::paginate(5);
-        return view('productos.index',compact('productos'));
+        $zapatos =Zapato::paginate(5);
+        return view('zapatos.index',compact('zapatos'));
     }
 
    
@@ -23,7 +23,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('productos.crear');
+        return view('zapatos.crear');
     }
 
     /**
@@ -35,11 +35,11 @@ class ProductoController extends Controller
     
     public function store(Request $request)
     {
-        $producto = new Producto();
-        $producto->nombre=$request ->input('nombre');
-        $producto->imagen=$request ->input('imagen');
-        $producto->descripcion=$request ->input('descripcion');
-        $producto->precio=$request ->input('precio');
+        $zapatos = new Zapato();
+        $zapatos->nombre=$request ->input('nombre');
+        $zapatos->imagen=$request ->input('imagen');
+        $zapatos->descripcion=$request ->input('descripcion');
+        $zapatos->precio=$request ->input('precio');
 
        
 
@@ -54,7 +54,7 @@ class ProductoController extends Controller
              
         }
 
-        Producto::create($producto);
+        Zapato::create($producto);
 
         return redirect()->route('productos.index');
     }
@@ -65,15 +65,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-
-
-    public function mostrar($id_producto)
+    public function show($id)
     {
-        $id_producto::find($id_producto);
-        
-        
-        return view('Categorias.venta',compact('id_producto'));
+     
     }
 
     /**
@@ -82,14 +76,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-
-
-
-
-   public function edit(Producto $producto)
+   public function edit(Zapato $zapato)
     {
-        return view('productos.editar', compact('producto'));
+        return view('zapatos.editar', compact('zapato'));
     }
 
     /**
@@ -99,12 +88,12 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Producto $producto){
+    public function update(Request $request,Zapato $zapato){
         
-        $producto->nombre=$request ->input('nombre');
-        $producto->imagen=$request ->input('imagen');
-        $producto->descripcion=$request ->input('descripcion');
-        $producto->precio=$request ->input('precio');
+        $zapato->nombre=$request ->input('nombre');
+        $zapato->imagen=$request ->input('imagen');
+        $zapato->descripcion=$request ->input('descripcion');
+        $zapato->precio=$request ->input('precio');
 
         $prod = $request->all();
 
@@ -117,8 +106,8 @@ class ProductoController extends Controller
         }else{
             unset($prod['imagen']);
          }
-         $producto->update($prod);
-         return redirect()->route('productos.index');
+         $zapato->update($prod);
+         return redirect()->route('zapatos.index');
          
         
         
@@ -130,9 +119,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy(Zapato $zapato)
     {
-        $producto-> delete();
-        return redirect()->route('productos.index');
+        $zapato-> delete();
+        return redirect()->route('zapatos.index');
     }
 }

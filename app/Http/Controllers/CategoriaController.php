@@ -19,10 +19,26 @@ class CategoriaController extends Controller
     }
     public function ropa()
     {
-        $Categorias =producto::paginate(5);
+        $Categorias =producto::paginate(6);
         return view('Categorias.ropa',compact('Categorias'));
     }
 
+
+    public function detalleventas()
+    {
+        $detalleV=producto::all();
+
+        
+        return view('Categorias.venta',compact('detalleV'));
+    }
+    
+    public function mostrar($id_producto)
+    {
+        $id_producto::find($id_producto);
+        
+        
+        return view('Categorias.venta',compact('id_producto'));
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -14,8 +14,7 @@
                        <div class="w-full md:w-1/2 xl:w-1/3 px-4">
                           <div class="bg-white rounded-lg overflow-hidden mb-10">
                              <img
-                                src="/imagen/{{$categoria->imagen}}" max-heigth: 300px; alt="image" class="w-full"
-                                />
+                                src="/imagen/{{$categoria->imagen}}" max-heigth: 300px; alt="image" class="w-full"/>
                              <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
                                 <h3>
                                    <a
@@ -33,10 +32,11 @@
                                  <span class="font-normal text-gray-600 text-base"></span>
                               </p>
                                 <a
-                                   href="javascript:void(0)"
+                                   href="detalleventas "
                                    class="inline-block  py-2   px-7 border border-[#E5E7EB] rounded-full  text-base text-body-color font-medium hover:border-primary hover:bg-primary hover:text-white transition ">
                                 comprar :)
                                 </a>
+
                              </div>
                           </div>
                        </div>
@@ -44,6 +44,9 @@
                      
                        @endforeach
                     </div>
+                    <div>
+                     {!! $Categorias->links() !!}
+                 </div>
                  </div>
               </section>
              </div>

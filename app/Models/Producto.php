@@ -22,4 +22,14 @@ class Producto extends Model
         'precio'
 
     ];
+
+    public function  detalleVenta()
+    {
+        return $this->belongsTo('App\Models\detalleVenta');
+    }
+    public function  Categoria()
+    {
+        return $this->belongsTo('App\Models\Categoria');
+    }
+    
 }

@@ -22,4 +22,8 @@ class cliente extends Model
         
 
     ];
+    public function  productos()
+    {
+        return $this->hasMany('App\Models\Product');
+    }
 }

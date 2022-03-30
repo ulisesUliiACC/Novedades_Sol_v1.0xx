@@ -5,7 +5,7 @@
             {{ __('Vista de  los productos ') }}
         </h2>
 		<a href="{{ route('productos.index') }}" class="py-3 px-12 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block" >Ropa</a>
-		<a href="{{route('zapatos.index')}}" class="py-3 px-12 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block" >zapatos</a>
+		<a href="" class="py-3 px-12 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block" >zapatos</a>
 		<a href="" class="py-3 px-12 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block" >joyeria</a>
     </x-slot>
 
@@ -13,7 +13,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-               <a type="button" href="{{route('productos.create')}}" class="bg-indigo-500 px-12 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out" >Crear</a>
+               <a type="button" href="{{route('zapatos.create')}}" class="bg-indigo-500 px-12 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out" >Crear</a>
                 <table class="table-fixed w-full">
                     <thead>
                         <tr class="bg-gray-800 text-white">
@@ -26,28 +26,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($productos as $producto)
+                        @foreach($zapatos as $zapato)
                         
 
                             
                         
                             <tr>
-                                <td class="border px-4 py-2 text-center">{{$producto->id_producto}}</td>
-                                <td class="border px-4 py-2 text-center">{{$producto->nombre}}</td>
+                                <td class="border px-4 py-2 text-center">{{$zapato->id_zapato}}</td>
+                                <td class="border px-4 py-2 text-center">{{$zapato->nombre}}</td>
                                 <td class="border px-0 py-2 text-center">
-                                    <img src="/imagen/{{$producto->imagen}}" max-heigth: 300px;>
+                                    <img src="/imagen/{{$zapato->imagen}}" max-heigth: 300px;>
                                 </td>
-                                <td class="border px-4 py-2 text-center" >{{$producto->descripcion}}</td>
-                                <td class="border px-4 py-2 text-center">{{$producto->precio}}</td>
+                                <td class="border px-4 py-2 text-center" >{{$zapato->descripcion}}</td>
+                                <td class="border px-4 py-2 text-center">{{$zapato->precio}}</td>
 
                                 <td class="border px-4 py-2">
                                     <div class="flex justify-center rounded-lg text-lg" role="group">
                                         <!-- BOTON DE EDITAR -->
-                                        <a href="{{route('productos.edit',$producto->id_producto)}}"class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3">EDITAR</a>
+                                        <a href="{{route('zapatos.edit',$zapato->id_zapato)}}"class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3">EDITAR</a>
 
                                         <!--- BOTON DE BORRAR-->
 
-                                        <form action="{{route('productos.destroy',$producto->id_producto)}}" method="POST" class="formEliminar">
+                                        <form action="{{route('zapatos.destroy',$zapato->id_zapato)}}" method="POST" class="formEliminar">
                                        @csrf
                                         @method('DELETE')
                                          <button type="submit" class="bg-indigo-500 px-2 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out" >BORRAR</button>
@@ -61,7 +61,7 @@
                     @endforeach
                 </table>
                 <div>
-                    {!! $productos->links() !!}
+                    {!! $zapatos->links() !!}
                 </div>
             </div>
         </div>
