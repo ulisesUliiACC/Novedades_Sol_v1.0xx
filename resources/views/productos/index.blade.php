@@ -4,9 +4,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight text-center">
             {{ __('Vista de  los productos ') }}
         </h2>
-		<a href="{{ route('productos.index') }}" class="py-3 px-12 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block" >Ropa</a>
-		<a href="{{route('zapatos.index')}}" class="py-3 px-12 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block" >zapatos</a>
-		<a href="" class="py-3 px-12 text-white rounded-lg bg-purple-600 shadow-lg block md:inline-block" >joyeria</a>
+	
     </x-slot>
 
 
@@ -19,10 +17,12 @@
                         <tr class="bg-gray-800 text-white">
                             <th>ID</th>
                             <th class="border px-4 py-2">NOMBRE</th>
-                            <th class="border px-4 py-1">IMAGEN</th>
+                            <!-- <th class="border px-4 py-1">IMAGEN</th> -->
                             <th class="border px-4 py-2">DESCRIPCION</th>
                             <th class="border px-4 py-2">PRECIO</th>
-                            <th class="border px-4 py-2">ACCIONES</th>
+                            <th class="border px-4 py-2">categoria</th>
+							<th class="border px-4 py-2">ACCIONES</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -32,22 +32,25 @@
                             
                         
                             <tr>
-                                <td class="border px-4 py-2 text-center">{{$producto->id_producto}}</td>
+                                <td class="border px-4 py-2 text-center">{{$producto->id}}</td>
                                 <td class="border px-4 py-2 text-center">{{$producto->nombre}}</td>
-                                <td class="border px-0 py-2 text-center">
+                               <!-- <td class="border px-0 py-2 text-center">
                                     <img src="/imagen/{{$producto->imagen}}" max-heigth: 300px;>
-                                </td>
+                                </td> -->
                                 <td class="border px-4 py-2 text-center" >{{$producto->descripcion}}</td>
                                 <td class="border px-4 py-2 text-center">{{$producto->precio}}</td>
+								<td class="border px-4 py-2 text-center" >{{$producto->categoria_id}}</td>
+
+								
 
                                 <td class="border px-4 py-2">
                                     <div class="flex justify-center rounded-lg text-lg" role="group">
                                         <!-- BOTON DE EDITAR -->
-                                        <a href="{{route('productos.edit',$producto->id_producto)}}"class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3">EDITAR</a>
+                                        <a href="{{route('productos.edit',$producto->id)}}"class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3">EDITAR</a>
 
                                         <!--- BOTON DE BORRAR-->
 
-                                        <form action="{{route('productos.destroy',$producto->id_producto)}}" method="POST" class="formEliminar">
+                                        <form action="{{route('productos.destroy',$producto->id)}}" method="POST" class="formEliminar">
                                        @csrf
                                         @method('DELETE')
                                          <button type="submit" class="bg-indigo-500 px-2 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out" >BORRAR</button>

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
-use App\Models\producto;
-
-class CategoriaController extends Controller
+use App\Models\Producto;
+class ApiproductosController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -14,31 +14,10 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $Categorias =producto::paginate(5);
-        return view('Categorias.index',compact('Categorias'));
-    }
-    public function ropa()
-    {
-        $Categorias =producto::paginate(6);
-        return view('Categorias.ropa',compact('Categorias'));
+        $producto =  Producto::all();
+        return $this->showAll($producto, 200);
     }
 
-
-    public function detalleventas()
-    {
-        $detalleV=producto::all();
-
-        
-        return view('Categorias.venta',compact('detalleV'));
-    }
-    
-    public function mostrar($id_producto)
-    {
-        $id_producto::find($id_producto);
-        
-        
-        return view('Categorias.venta',compact('id_producto'));
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -46,7 +25,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -57,7 +36,14 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new Producto;
+        $producto->nombre = $request->input('nombre');
+        $producto->imagen = $request->input('imagen');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->precio = $request->input('precio');
+        $producto->categoria_id = $request->input('categoria_id');
+        $producto->save();
+        return $this->showMessage('Categoria creada', 200);
     }
 
     /**
@@ -68,7 +54,8 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = Producto::find($id);
+        return $this->showOne($producto, 200);
     }
 
     /**
@@ -91,7 +78,9 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id = Producto::find($id);
+        $id->update($request->all());
+        return $this->showUpdate('Producto actualizado correctamente', 200);
     }
 
     /**
@@ -102,6 +91,8 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = Producto::find($id);
+        $id->delete();
+        return $this->showDelete('Producto eliminado correctamente', 200);
     }
 }

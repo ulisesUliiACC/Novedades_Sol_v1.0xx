@@ -19,19 +19,18 @@ hola esta es la vista de crear uwu
                                 <!--       flex - asjad korvuti, nb! flex-1 - element kogu ylejaanud laius -->
 
                                 <div class="flex items-center  mb-5">
-                                    <!--         tip - here neede inline-block , but why? -->
                                     <label
                                         class="inline-block w-20 mr-6   font-bold text-gray-600">Nombre</label>
                                     <input name="nombre" type="text"  placeholder="Nombre del Producto"
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
                                 </div>
-
+                                <!--
                                 <div class="grid grid-cols-1 mt-5 mx-7 justify-center">
                                     <img id="imagenSeleccionada" style="max-heigth: 300px;">
 
                                 </div>
                                 <br>
-
+                            
                                 <div class="flex items-center mb-5">
                                     <label
                                         class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">agregar
@@ -55,6 +54,13 @@ hola esta es la vista de crear uwu
                                         </label>
                                     </div>
                                 </div>
+                            -->
+                            <div class="flex items-center  mb-5">
+                                <label
+                                    class="inline-block w-20 mr-6   font-bold text-gray-600">imagen</label>
+                                <input name="imagen" type="text"  placeholder="url de la imagen"
+                                    class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
+                            </div>
 
                                 <div class="flex items-center mb-5">
                                     <label 
@@ -70,6 +76,20 @@ hola esta es la vista de crear uwu
                                         class="inline-block w-20 mr-6 text-right  font-bold text-gray-600">Precio</label>
                                     <input type="number"  name="precio" id="Precio" placeholder="Precio "
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
+                                </div>
+                                <!--  categoria  -->
+                                <div class="flex items-center mb-5">
+                                    <label   class="inline-block w-20 mr-6 text-right  font-bold text-gray-600">categoria</label>
+                                    <div class="col-sm-7">
+                                        <select class="form-group bmd-form-group" name="categoria_id"  type="hidden">
+                                            <option selected value="">Selecciona</option>
+                                            @foreach($categorias as $categoria)
+                                                <option value="{!! $categoria->id !!}">{{ $categoria->nombre }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+         
+
                                 </div>
                                 <div class='flex items-center justify-center md:gap-8 gap-4 pt-5 '>
                                     <a href="{{ route('productos.index') }}"

@@ -1,11 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoriaContrller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\InformacionController;
-use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\zapatoscontroller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,45 +21,39 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-Route::get('categorias', function () {
-    return view('Categorias.index');
-});
+
+
+
 
 //------------------------rutas protegidas-------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->group(function(){
-    Route::resource('/productos',ProductoController::class);
-    Route::resource('/cliente',ClienteController::class);
-    Route::resource('/categorias',CategoriaController::class);
-    Route::name('info')->get('/info',[InformacionController::class, 'info']);
     
-Route::name('location')->get('/location',[InformacionController::class, 'location']);
 
 
     Route::get('/dashboard',function(){ 
         return view('dashboard');
     })->name('dashboard');
-});
+    });
+
+    
+    Route::resource('/cliente',ClienteController::class);
+
+    Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+    Route::get('/productos/productos', [ProductoController::class, 'create'])->name('productos.create');
+    Route::post('/productos/productos', [ProductoController::class, 'store'])->name('productos.store');
+    Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])->name('productos.destroy');
+    Route::put('/productos/{id}/update/', [ProductoController::class, 'edit'])->name('productos.update');
+    Route::get('/productos/{id}/edit/', [ProductoController::class, 'edit'])->name('productos.edit');
+    //---- rutas de categorias ---//
 
 
-Route::name('venta')->get('detalleventas',[CategoriaController::class,'detalleventas' ]);
-Route::name('/mostar')->get('mostar/{id_producto}',[ProductoController::class,'mostrar']);
+    Route::get('/categorias', [CategoriaContrller::class, 'index'])->name('categorias.index');
+    Route::get('/categorias/create', [CategoriaContrller::class, 'create'])->name('categorias.create');
+    Route::post('/categorias/create', [CategoriaContrller::class, 'Store'])->name('categorias.Store');
+    Route::delete('/categorias/{id}', [CategoriaContrller::class, 'destroy'])->name('categorias.destroy');
+    Route::put('/categorias/{id}/update/', [CategoriaContrller::class, 'edit'])->name('categorias.update');
+    Route::get('/categorias/{id}/edit/', [CategoriaContrller::class, 'edit'])->name('categorias.edit');
 
 
-//-----------rutas no protegidas--------------------------------
 
-Route::name('categorias')->get('/ropa',[CategoriaController::class, 'ropa']);
-Route::name('location')->get('/location',[InformacionController::class, 'location']);
-
-Route::name('categorias/ropa')->get('/ropa',[CategoriaController::class,'ropa']);
-
-Route::name('venta')->get('/detalleventas',[CategoriaController::class,'detalleventas']);
-
-//--------------Agregar categorias ------------- -----
-
-//Route::name('categoria')->get('/create',[CategoriaController::class, 'categoria']);
-
-
-//--------------rutas de zapatos ------------- ------
-
-Route::resource('/zapatos', zapatoscontroller::class);
 

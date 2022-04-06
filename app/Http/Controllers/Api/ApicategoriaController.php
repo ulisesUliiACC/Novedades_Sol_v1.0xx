@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\ApiController;
 
 use Illuminate\Http\Request;
-
-class InformacionController extends Controller
+use App\Models\Categoria;
+class ApicategoriaController extends ApiController
 {
     /**
      * Display a listing of the resource.
@@ -13,18 +15,10 @@ class InformacionController extends Controller
      */
     public function index()
     {
-        return view('informacion.editar');
+        $categoria = Categoria::all();
+        
+        return $this->showAll($categoria, 200);
     }
-    public function info()
-    {
-        return view('cards.card');
-    }
-
-    public function location()
-    {
-        return view('cards.location');
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +27,7 @@ class InformacionController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -44,7 +38,10 @@ class InformacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria;
+        $categoria->nombre=$request->input('nombre');
+        $categoria->save();
+        return  $this->shoMessage('categoria creada',200);
     }
 
     /**
@@ -55,7 +52,9 @@ class InformacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $categories = Categoria::find($id);
+        
+        return $this->showOne($categories, 200);
     }
 
     /**
@@ -78,7 +77,9 @@ class InformacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categoria = Categoria::find($id);
+        $categoria->update($request->all());
+        return $this->showUpdate('Categoria actualizada', 200);
     }
 
     /**
@@ -89,6 +90,8 @@ class InformacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = Categoria::find($id);
+        $id->delete();
+        return $this->showDelete('Categoria eliminada', 200);
     }
 }

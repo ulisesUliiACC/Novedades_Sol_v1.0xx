@@ -39,7 +39,7 @@
                            
                            
                         </nav>
-                        <!---  login o autentificacion--->>
+                        <!---  login o autentificacion--->
                         @if (Route::has('login'))
                             <div class="relative z-10 inline-flex items-center space-x-3 md:ml-5 lg:justify-end">
                                 @auth
@@ -62,7 +62,7 @@
                             </div>
                         @endif
 
-                        <!---  login o autentificacion--->>
+                        <!---  login o autentificacion--->
                     </div>
                 </section>
 
