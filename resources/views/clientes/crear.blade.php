@@ -46,29 +46,7 @@
                                 </div>
                                 <br>
 
-                                <div class="flex items-center mb-5">
-                                    <label
-                                        class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">agregar
-                                        imagen</label>
-                                    <div class='flex items-center justify-center mb-5 w-full'>
-                                        <label
-                                            class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
-                                            <div class='flex flex-col items-center justify-center pt-7'>
-                                                <svg class="mx-auto h-12 w-12 text-black" stroke="currentColor"
-                                                    fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                                    <path
-                                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                                        stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg>
-                                                <p
-                                                    class='text-sm text-gray-400 group-hover:text-purple pt-1 tracting-wider'>
-                                                    Seleciona la imagen</p>
-                                            </div>
-                                            <input id="imagen" name="imagen" id="imagen" type='file' class="hidden" />
-                                        </label>
-                                    </div>
-                                </div>
+                               
 
                                 <div class="flex items-center  mb-5">
                                     <label
@@ -90,13 +68,7 @@
                                     </label>
                                  </div>
                                  <!-- check de genero -->
-                               
-                                 <div class="flex items-center  mb-5">
-                                    <label
-                                        class="inline-block w-20 mr-6   font-bold text-gray-600">Fecha de Nacimiento</label>
-                                    <input name="fecha_de_naci" type="date"  value="fecha_de_naci"
-                                        class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
-                                </div>
+                              
                                 
                                 
                                 <div class='flex items-center justify-center md:gap-8 gap-4 pt-5 '>

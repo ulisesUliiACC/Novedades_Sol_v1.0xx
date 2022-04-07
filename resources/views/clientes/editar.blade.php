@@ -9,7 +9,7 @@
                 <div class="bg-white overflow-hidden shadow-x1 sm:rounded-lg">
                     
 
-                    <form action="{{ route('cliente.update',$cliente->id_cliente) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('cliente.update',$cliente->id) }}" method="POST" enctype="multipart/form-data">
                       {{  @csrf_field()}}
                       @method('PUT')
                         <div class="bg-green-200 py-32 px-5 min">
@@ -41,35 +41,8 @@
                                         class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
                                 </div>
 
-                                <div class="grid grid-cols-1 mt-5 mx-7 justify-center">
-                                    <img id="imagenSeleccionada"  src="/imagen/{{ $cliente->imagen }}" style="max-heigth: 300px;">
-
-                                </div>
+                               
                                 <br>
-
-                                <div class="flex items-center mb-5">
-                                    <label
-                                        class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">agregar
-                                        imagen</label>
-                                    <div class='flex items-center justify-center mb-5 w-full'>
-                                        <label
-                                            class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
-                                            <div class='flex flex-col items-center justify-center pt-7'>
-                                                <svg class="mx-auto h-12 w-12 text-black" stroke="currentColor"
-                                                    fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                                    <path
-                                                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                                        stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round" />
-                                                </svg>
-                                                <p
-                                                    class='text-sm text-gray-400 group-hover:text-purple pt-1 tracting-wider'>
-                                                    Seleciona la imagen</p>
-                                            </div>
-                                            <input id="imagen" name="imagen" id="imagen" type='file' class="hidden" value="{{ $cliente->imagen}}" required/>
-                                        </label>
-                                    </div>
-                                </div>
 
                                 <div class="flex items-center  mb-5">
                                     <label
@@ -90,16 +63,6 @@
                                         <input type="radio" class="form-radio h-5 w-5 text-purple-600" name="genero" value="femenino"  value="{{ $cliente->genero }}"required checked><span class="ml-2 text-gray-700">Femenino</span>
                                     </label>
                                  </div>
-
-                                 <div class="flex items-center  mb-5">
-                                    <label
-                                        class="inline-block w-20 mr-6   font-bold text-gray-600">Fecha de Nacimiento</label>
-                                    <input name="fecha_de_naci" type="date"  value="fecha_de_naci" value="{{ $cliente->fecha_de_naci }}"required
-                                        class="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 text-gray-600 placeholder-gray-400 outline-none">
-                                </div>
-                                
-
-                               
                                 <div class='flex items-center justify-center md:gap-8 gap-4 pt-5 '>
                                     <a href="{{ route('cliente.index') }}"
                                       class="py-3 px-6 text-white rounded-lg bg-red-500 shadow-lg block md:inline-block">Cancelar</a>

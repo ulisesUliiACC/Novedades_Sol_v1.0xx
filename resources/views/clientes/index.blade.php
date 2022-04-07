@@ -10,6 +10,7 @@
         <div class="max-w-12xl mx-auto sm:px-12 lg:px-12">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <a type="button" href="{{route('cliente.create')}}" class="bg-indigo-500 px-12 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out" >Crear</a>
+
                   <table class="table-fixed w-full">
                     <thead>
                         <tr class="bg-gray-900 text-white">
@@ -17,36 +18,32 @@
                             <th class="border px-4 py-2">NOMBRE</th>
                             <th class="border px-4 py-1">Apellido Paterno</th>
                             <th class="border px-4 py-2">Apellido Materno</th>
-                            <th class="border px-4 py-2">foto</th>
+                            <!-- <th class="border px-4 py-2">foto</th> -->
                             <th class="border px-4 py-2">correo Electronico</th>
                             <th class="border px-4 py-2">Genero</th>
-                            <th class="border px-4 py-2">Fecha de nacimiento</th>
+                       <!-- <th class="border px-4 py-2">Fecha de nacimiento</th> -->
                             <th class="border px-4 py-2">ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($clientes as $cliente)
                             <tr>
-                                <td class="border px-4 py-2 text-center">{{$cliente->id_cliente}}</td>
+                                <td class="border px-4 py-2 text-center">{{$cliente->id}}</td>
                                 <td class="border px-4 py-2 text-center">{{$cliente->nombre}}</td>
                                 <td class="border px-4 py-2 text-center">{{$cliente->apellido_pa}}</td>
                                 <td class="border px-4 py-2 text-center">{{$cliente->apellido_ma}}</td>
-                                <td class="border px-0 py-2 text-center">
-                                <img src="/imagen/{{$cliente->imagen}}" max-heigth: 300px;>
-                                </td>
+                            
                                 <td class="border px-1 py-5 text-center">{{$cliente->correo}}</td>
-                                <td class="border px-4 py-2 text-center">{{$cliente->genero}}</td>
-                                <td class="border px-4 py-2 text-center">{{$cliente->fecha_de_naci}}</td>
-                                
+                                <td class="border px-4 py-2 text-center">{{$cliente->genero}}</td>                                
 
                                 <td class="border px-4 py-2">
                                     <div class="flex justify-center rounded-lg text-lg" role="group">
                                         <!-- BOTON DE EDITAR -->
-                                        <a href="{{route('cliente.edit',$cliente->id_cliente)}}"class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3">EDITAR</a>
+                                        <a href="{{route('cliente.edit',$cliente->id)}}"class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-3">EDITAR</a>
 
                                         <!--- BOTON DE BORRAR-->
 
-                                        <form action="{{route('cliente.destroy',$cliente->id_cliente)}}" method="POST" class="formEliminar">
+                                        <form action="{{route('cliente.destroy',$cliente->id)}}" method="POST" class="formEliminar">
                                        @csrf
                                         @method('DELETE')
                                          <button type="submit" class="bg-indigo-500 px-2 py-2 rounded text-gray-200 font-semibold hover:bg-indigo-800 transition duration-200 each-in-out" >BORRAR</button>

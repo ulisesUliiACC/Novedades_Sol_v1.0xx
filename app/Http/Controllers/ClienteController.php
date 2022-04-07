@@ -33,28 +33,15 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente();
-        $cliente->nombre=$request ->input('nombre');
-        $cliente->apellido_pa=$request ->input('apellido_pa');
-        $cliente->apellido_ma=$request ->input('apellido_ma');
-        $cliente->imagen=$request ->input('imagen');
-        $cliente->correo=$request ->input('correo');
-        $cliente->genero=$request ->input('genero');
-        $cliente->fecha_de_naci=$request ->input('fecha_de_nac');
+        Cliente::create([
+            'nombre'=>$request->nombre,
+            'apellido_pa'=>$request->apellido_pa,
+            'apellido_ma'=>$request->apellido_ma,
+            'correo'=>$request->correo,
+            'genero'=>$request->genero,
+         ]);
      
        
-
-        $cliente = $request->all();
-
-        if($imagen = $request->file('imagen')){
-             $rutaGuardarImg ='imagen/';
-             $imagenUsuario = date('YmdHis')."." .$imagen->getClientOriginalExtension();
-             $imagen->move($rutaGuardarImg,$imagenUsuario);
-             $cliente['imagen'] ="$imagenUsuario";
-             
-        }
-
-        cliente::create($cliente);
 
         return redirect()->route('cliente.index');
     }
@@ -78,6 +65,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
+        
         return view('clientes.editar', compact('cliente'));
     }
 
@@ -88,32 +76,10 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cliente $cliente)
+    public function update(Request $request, $id)
     {
-        $cliente->nombre=$request ->input('nombre');
-        $cliente->apellido_pa=$request ->input('apellido_pa');
-        $cliente->apellido_ma=$request ->input('apellido_ma');
-        $cliente->imagen=$request ->input('imagen');
-        $cliente->correo=$request ->input('correo');
-        $cliente->genero=$request ->input('genero');
-        $cliente->fecha_de_naci=$request ->input('fecha_de_naci');
-     
-       
-
-        $usu = $request->all();
-
-        if($imagen = $request->file('imagen')){
-             $rutaGuardarImg ='imagen/';
-             $imagenUsuario = date('YmdHis')."." .$imagen->getClientOriginalExtension();
-
-             $imagen->move($rutaGuardarImg,$imagenUsuario);
-             $usu['imagen'] ="$imagenUsuario"; 
-        }else{
-            unset($usu['imagen']);
-         }
-
-    
-        $cliente->update($usu);
+        $id=Cliente::find($id);
+        $id->update($request->all());
         return redirect()->route('clientes.index');
     }
 

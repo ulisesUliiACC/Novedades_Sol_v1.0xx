@@ -22,14 +22,15 @@
                         {{ __('clientes') }}
                     </x-jet-nav-link>
 
-
-
-
                     <x-jet-nav-link href="{{ route('categorias.index') }}"  :active="request()->routeIs('categorias.index')">
                         {{ __('Categorias') }}
 
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('ventas.index') }}"  :active="request()->routeIs('ventas.index')">
+                        {{ __('ventas') }}
+
+                    </x-jet-nav-link>
                     
 
                 </div>

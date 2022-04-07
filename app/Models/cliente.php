@@ -8,22 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class cliente extends Model
 {
     use HasFactory;
-    protected $primaryKey ='id_cliente';
+    protected $primaryKey ='id';
     
     protected $fillable =[
 
         'nombre',
         'apellido_pa',
         'apellido_ma',
-        'imagen',
         'correo',
-        'genero',
-        'fecha_de_naci'
-        
+        'genero',       
 
     ];
-    public function  productos()
-    {
-        return $this->hasMany('App\Models\Product');
-    }
 }

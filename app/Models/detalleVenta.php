@@ -13,13 +13,14 @@ class detalleVenta extends Model
     use softDeletes;
     
     protected $dates=['delete_at'];// use del campo softdeletes
-    protected $primaryKey ='id_venta';
-    protected $table='venta';
+    protected $primaryKey ='id';
+    protected $table='detalle';
     protected $fillable =[
 
-        'cantidad_venta',
-        'subtotal',
-        'total'
+        'cantidad',
+        'total',
+        'precio_id',
+        'categoria_id',
 
     ];
 

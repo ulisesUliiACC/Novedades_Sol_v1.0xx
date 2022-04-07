@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoriaContrller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DetalleVentaController;
 
 
 /*
@@ -55,5 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function(){
     Route::get('/categorias/{id}/edit/', [CategoriaContrller::class, 'edit'])->name('categorias.edit');
 
 
+///-------///
 
+    Route::get('/ventas',[DetalleVentaController::class,'index'])->name('ventas.index');
 
