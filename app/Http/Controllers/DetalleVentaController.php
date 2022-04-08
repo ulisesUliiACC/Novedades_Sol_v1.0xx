@@ -14,12 +14,5 @@ class DetalleVentaController extends Controller
         return view('ventas.index',compact('ventas'));
     }
 
-    public function create()
-    {
-
-
-    }
-
-
 
 }

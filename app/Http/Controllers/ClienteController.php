@@ -80,7 +80,7 @@ class ClienteController extends Controller
     {
         $id=Cliente::find($id);
         $id->update($request->all());
-        return redirect()->route('clientes.index');
+        return redirect()->route('cliente.index');
     }
 
     /**
