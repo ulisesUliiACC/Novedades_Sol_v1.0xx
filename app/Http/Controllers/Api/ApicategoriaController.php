@@ -52,9 +52,9 @@ class ApicategoriaController extends ApiController
      */
     public function show($id)
     {
-        $categories = Categoria::find($id);
+        $categorias = Categoria::find($id);
         
-        return $this->showOne($categories, 200);
+        return $this->showOne($categorias, 200);
     }
 
     /**
